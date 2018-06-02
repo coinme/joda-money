@@ -5,15 +5,13 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-
-  <name>Joda-Money</name>
+  <groupId>org.joda</groupId>
+  <artifactId>joda-money</artifactId>
   <packaging>jar</packaging>
+  <name>Joda-Money</name>
+  <version>0.12</version>
   <description>Money representation and formatting</description>
   <url>http://www.joda.org/joda-money/</url>
-
-  <groupId>com.coinme</groupId>
-  <artifactId>joda-money</artifactId>
-  <version>0.12</version>
 
   <!-- ==================================================================== -->
   <issueManagement>
@@ -471,36 +469,20 @@
 
   <!-- ==================================================================== -->
   <distributionManagement>
-    <!--<repository>-->
-      <!--<id>sonatype-joda-staging</id>-->
-      <!--<name>Sonatype OSS staging repository</name>-->
-      <!--<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-      <!--<layout>default</layout>-->
-    <!--</repository>-->
-
-    <!--<snapshotRepository>-->
-      <!--<uniqueVersion>false</uniqueVersion>-->
-      <!--<id>sonatype-joda-snapshot</id>-->
-      <!--<name>Sonatype OSS snapshot repository</name>-->
-      <!--<url>http://oss.sonatype.org/content/repositories/joda-snapshots</url>-->
-      <!--<layout>default</layout>-->
-    <!--</snapshotRepository>-->
-
-    <!--<downloadUrl>http://oss.sonatype.org/content/repositories/joda-releases</downloadUrl>-->
-
     <repository>
-      <id>central</id>
-      <name>Coinme</name>
-      <url>http://artifactory.coinme.org/artifactory/libs-release-local</url>
+      <id>sonatype-joda-staging</id>
+      <name>Sonatype OSS staging repository</name>
+      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <layout>default</layout>
     </repository>
-
     <snapshotRepository>
       <uniqueVersion>false</uniqueVersion>
-      <id>snapshots</id>
-      <name>Coinme</name>
-      <url>http://artifactory.coinme.org/artifactory/libs-snapshot-local</url>
+      <id>sonatype-joda-snapshot</id>
+      <name>Sonatype OSS snapshot repository</name>
+      <url>http://oss.sonatype.org/content/repositories/joda-snapshots</url>
       <layout>default</layout>
     </snapshotRepository>
+    <downloadUrl>http://oss.sonatype.org/content/repositories/joda-releases</downloadUrl>
   </distributionManagement>
 
   <!-- ==================================================================== -->
