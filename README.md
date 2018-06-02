@@ -1,3 +1,18 @@
+coinme:joda-money
+------
+
+Modified to support 4-letter currencyCodes
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.coinme</groupId>
+        <artifactId>joda-money</artifactId>
+        <version>1.13</version>
+    </dependency>
+</dependencies>
+```
+
 Joda-Money
 ----------
 
