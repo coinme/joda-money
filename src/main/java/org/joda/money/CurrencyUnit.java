@@ -55,7 +55,7 @@ public final class CurrencyUnit implements Comparable<CurrencyUnit>, Serializabl
     /**
      * The currency code pattern.
      */
-    private static final Pattern CODE = Pattern.compile("[A-Z][A-Z][A-Z]");
+    private static final Pattern CODE = Pattern.compile("[A-Z][A-Z][A-Z][A-Z]?");
     /**
      * Map of registered currencies by text code.
      */
@@ -171,10 +171,10 @@ public final class CurrencyUnit implements Comparable<CurrencyUnit>, Serializabl
      * This method uses a flag to determine whether the registered currency
      * must be new, or can replace an existing currency.
      * <p>
-     * The currency code must be three upper-case ASCII letters, based on ISO-4217.
+     * The currency code must be three or four upper-case ASCII letters, loosely based on ISO-4217.
      * The numeric code must be from 0 to 999, or -1 if not applicable.
      *
-     * @param currencyCode  the three-letter upper-case currency code, not null
+     * @param currencyCode  the three-letter or four-letter upper-case currency code, not null
      * @param numericCurrencyCode  the numeric currency code, from 0 to 999, -1 if none
      * @param decimalPlaces  the number of decimal places that the currency
      *  normally has, from 0 to 9 (normally 0, 2 or 3), or -1 for a pseudo-currency
@@ -189,8 +189,8 @@ public final class CurrencyUnit implements Comparable<CurrencyUnit>, Serializabl
     public static synchronized CurrencyUnit registerCurrency(
                     String currencyCode, int numericCurrencyCode, int decimalPlaces, List<String> countryCodes, boolean force) {
         MoneyUtils.checkNotNull(currencyCode, "Currency code must not be null");
-        if (currencyCode.length() != 3) {
-            throw new IllegalArgumentException("Invalid string code, must be length 3");
+        if (!CODE.matcher(currencyCode).matches()) {
+            throw new IllegalArgumentException("Invalid string code, must be length 3 or 4");
         }
         if (numericCurrencyCode < -1 || numericCurrencyCode > 999) {
             throw new IllegalArgumentException("Invalid numeric code");

@@ -63,6 +63,18 @@ public class TestCurrencyUnitExtension {
         assertEquals(found, false);
     }
 
+    public void test_USDT() {
+        List<CurrencyUnit> curList = CurrencyUnit.registeredCurrencies();
+        boolean found = false;
+        for (CurrencyUnit currencyUnit : curList) {
+            if (currencyUnit.getCode().equals("USDT")) {
+                found = true;
+                break;
+            }
+        }
+        assertEquals(found, true);
+    }
+
     public void test_CurrencyEURChanged() {
         CurrencyUnit currency = CurrencyUnit.ofCountry("HU");
         assertEquals(currency, CurrencyUnit.EUR);
