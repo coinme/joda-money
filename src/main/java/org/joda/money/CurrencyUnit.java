@@ -55,7 +55,7 @@ public final class CurrencyUnit implements Comparable<CurrencyUnit>, Serializabl
     /**
      * The currency code pattern.
      */
-    private static final Pattern CODE = Pattern.compile("[A-Z][A-Z][A-Z][A-Z]?");
+    private static final Pattern CODE = Pattern.compile("[A-Z]{2,4}");
     /**
      * Map of registered currencies by text code.
      */
