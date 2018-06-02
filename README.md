@@ -8,7 +8,7 @@ Modified to support 4-letter currencyCodes
     <dependency>
         <groupId>com.coinme</groupId>
         <artifactId>joda-money</artifactId>
-        <version>1.13</version>
+        <version>1.12.1</version>
     </dependency>
 </dependencies>
 ```
