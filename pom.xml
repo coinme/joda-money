@@ -13,7 +13,7 @@
 
     <groupId>com.coinme</groupId>
     <artifactId>joda-money</artifactId>
-    <version>1.12.2-SNAPSHOT</version>
+    <version>1.12.2</version>
 
     <!-- ==================================================================== -->
     <issueManagement>
