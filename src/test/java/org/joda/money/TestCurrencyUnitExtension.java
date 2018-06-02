@@ -15,11 +15,14 @@
  */
 package org.joda.money;
 
-import static org.testng.Assert.assertEquals;
-
-import java.util.List;
-
 import org.testng.annotations.Test;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 /**
  * Test CurrencyUnit.
@@ -27,17 +30,17 @@ import org.testng.annotations.Test;
 @Test
 public class TestCurrencyUnitExtension {
 
-  public void test_CurrencyFromMoneyData() {
-    List<CurrencyUnit> curList = CurrencyUnit.registeredCurrencies();
-    boolean found = false;
-    for (CurrencyUnit currencyUnit : curList) {
-        if (currencyUnit.getCode().equals("GBP")) {
-            found = true;
-            break;
+    public void test_CurrencyFromMoneyData() {
+        List<CurrencyUnit> curList = CurrencyUnit.registeredCurrencies();
+        boolean found = false;
+        for (CurrencyUnit currencyUnit : curList) {
+            if (currencyUnit.getCode().equals("GBP")) {
+                found = true;
+                break;
+            }
         }
+        assertEquals(found, true);
     }
-    assertEquals(found, true);
-   }
 
     public void test_CurrencyFromMoneyDataExtension() {
         List<CurrencyUnit> curList = CurrencyUnit.registeredCurrencies();
@@ -63,16 +66,19 @@ public class TestCurrencyUnitExtension {
         assertEquals(found, false);
     }
 
-    public void test_USDT() {
+    public void test_MyCurrencies() {
         List<CurrencyUnit> curList = CurrencyUnit.registeredCurrencies();
-        boolean found = false;
+        Map<String, CurrencyUnit> map = new HashMap<String, CurrencyUnit>();
+
         for (CurrencyUnit currencyUnit : curList) {
-            if (currencyUnit.getCode().equals("USDT")) {
-                found = true;
-                break;
-            }
+            map.put(currencyUnit.getCode(), currencyUnit);
         }
-        assertEquals(found, true);
+
+        assertNotNull(map.get("USDT"));
+        assertNotNull(map.get("BTC"));
+
+        assertNotNull(map.get("UP"));
+        assertEquals(map.get("UP"), CurrencyUnit.of("UP"));
     }
 
     public void test_CurrencyEURChanged() {
